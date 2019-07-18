@@ -37,7 +37,7 @@ tweetFile.close()
 # #to see the value of one of those keys:
 # # print(tweetData[0]["created_at"])
 #
-#
+'''
 # #HERE (BELOW) IS THE CODE TO FIND THE AVERAGE
 # sum = 0
 # num = 0 #the amount of tweets total that have favorites- the total when divide sum by total
@@ -56,7 +56,7 @@ tweetFile.close()
 # average = sum/num
 # print("here is avg!!!!!!!!!!")
 # print(average)
-#
+'''
 #
 tweetList = []
 for i in range(len(tweetData)):
@@ -76,7 +76,7 @@ for item in tweetList:
 	blob1 = TextBlob(item)
 	polar1 = blob1.polarity
 	polarityList.append(polar1)
-# print(polarityList)
+print(polarityList)
 #
 # ***THERE SEEMS TO BE SOME ISSUES HERE***
 tweetpol = {}
@@ -88,7 +88,8 @@ for i in range(0,len(tweetData)):
 	poldict["polarity"] = polarityList[i]
 	poldict["tweet"] = tweetList[i]
 	dictlist.append(poldict)
-print(dictlist)
+
+# print(dictlist)
 
 #turn all tweets into one long string by taking the tweets in the tweet list and iterat thru it
 tweetstring = " "
@@ -96,25 +97,31 @@ for tweet in tweetList:
 	tweet = tweet + " " #this reassigns tweet to be tweet plus a space
 	tweetstring += tweet
 # print(tweetstring)
-wordcloud = WordCloud(). generate(tweetstring)
+'''
+# generates wordCloud:
+wordcloud = WordCloud(height = 1000, width = 1000). generate(tweetstring)
+plt.figure(figsize = (10,10), facecolor = None)
 plt.imshow(wordcloud, interpolation="bilinear")
 plt.axis("off")
 plt.show()
 plt.savefig("shira'schart.png")
-
+'''
 
 
 #histogram stuff
-n, bins, patches = plt.hist(polarityList, 50, normed=1, facecolor='g', alpha=0.75)
+print(polarityList)
+# print(min(polarityList), max(polarityList))
+plt.hist(polarityList)
 
-
-plt.xlabel('Smarts')
-plt.ylabel('Probability')
-plt.title('Histogram of IQ')
-plt.text(60, .025, r'$\mu=100,\ \sigma=15$')
-plt.axis([40, 160, 0, 0.03])
-plt.grid(True)
+plt.axis([-0.55, 1.05, 0, 50]) # first two are min and max for x axis, last two are min max for y axis
+# plt.grid(True)
 plt.show()
+plt.savefig("shirachart.png")
+plt.xlabel("polarity")
+plt.ylabel("frequency")
+plt.title('Histogram of polarity of Tweets')
+# plt.text(60, .025, r'$\mu=100,\ \sigma=15$')
+
 
 # new Thing
 # tb = TextBlob("you are compsists") #this returns tb, a "text blob object" which you could do a  lot of things to like print the polarity...
@@ -148,7 +155,7 @@ plt.show()
 # # Explain here how Python lets you get objects
 # # directly without having to use an index.
 # for tweet in tweetData:
-# 	print("Tweet text: " + tweet["text"])
+# 	print("Tweet text: " + tweet["text")
 #
 # # Encourage students to think about how there are
 # # often multiple solutions for each problem, and
