@@ -79,15 +79,16 @@ for item in tweetList:
 # print(polarityList)
 #
 # ***THERE SEEMS TO BE SOME ISSUES HERE***
-# tweetpol = {}
-# leest = []
-# for i in range(0,len(tweetData)):
-# 	dictionaree = {}
-# 	dictionaree ["tid"] = tweetData[i][id]
-# 	dictionaree ["polarity"] = polarity_list[i]
-# 	dictionaree ["tweet"] = texts [i]
-# 	leest.append(dictionaree)
-# print(leest)
+tweetpol = {}
+dictlist = []
+for i in range(0,len(tweetData)):
+	poldict = {}
+
+	poldict["twitterid"] = tweetData[i]["id"]
+	poldict["polarity"] = polarityList[i]
+	poldict["tweet"] = tweetList[i]
+	dictlist.append(poldict)
+print(dictlist)
 
 #turn all tweets into one long string by taking the tweets in the tweet list and iterat thru it
 tweetstring = " "
@@ -100,6 +101,20 @@ plt.imshow(wordcloud, interpolation="bilinear")
 plt.axis("off")
 plt.show()
 plt.savefig("shira'schart.png")
+
+
+
+#histogram stuff
+n, bins, patches = plt.hist(polarityList, 50, normed=1, facecolor='g', alpha=0.75)
+
+
+plt.xlabel('Smarts')
+plt.ylabel('Probability')
+plt.title('Histogram of IQ')
+plt.text(60, .025, r'$\mu=100,\ \sigma=15$')
+plt.axis([40, 160, 0, 0.03])
+plt.grid(True)
+plt.show()
 
 # new Thing
 # tb = TextBlob("you are compsists") #this returns tb, a "text blob object" which you could do a  lot of things to like print the polarity...
