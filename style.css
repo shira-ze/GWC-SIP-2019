@@ -1,0 +1,52 @@
+h1{
+  color: white;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+
+}
+h2{
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+
+}
+body {
+  background-image: url("paper.gif");
+  background-color: #CA2222;
+  font-family: 'Poppins', sans-serif;
+
+}
+#bio0 {
+  font-size: 30px;
+  background-color:#DB3E3E;
+  font-family: 'Poppins', sans-serif;
+
+
+}
+#bio1 {
+  font-size: 30px;
+  background-color:#F1C5C5;
+  font-family: 'Poppins', sans-serif;
+
+
+}
+#bio2 {
+  font-size: 30px;
+  background-color:#F2F1F1;
+  font-family: 'Poppins', sans-serif;
+
+
+}
+#bulletpoint {
+  font-size: 30px;
+  background-color:#0D0D0D;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+
+
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
